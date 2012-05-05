@@ -281,7 +281,9 @@
 ;;		 ))
 
 ;;タブ幅を 4 に設定
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 ;;タブ幅の倍数を設定
 (setq tab-stop-list
 	  '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
