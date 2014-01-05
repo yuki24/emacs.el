@@ -2,7 +2,7 @@
  (require 'ido)
  (ido-mode t)
 ;; Rinari
- (add-to-list 'load-path "/path/to/.emacs.d/rinari")
+ (add-to-list 'load-path "~/yuki/.emacs.d/rinari")
  (require 'rinari)
 ;; Rake files are ruby, too, as are gemspecs, rackup files, etc.
  (add-to-list 'auto-mode-alist '("\.rake$" . ruby-mode))
