@@ -378,7 +378,7 @@
 ;; iswitchb
 ;;
 (require 'iswitchb)
-(iswitchb-default-keybindings)
+(iswitchb-mode 1)
 ;; keybind
 (add-hook 'iswitchb-define-mode-map-hook
 		  'iswitchb-my-keys)
