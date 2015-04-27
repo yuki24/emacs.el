@@ -2,19 +2,59 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;; Interactively Do Things (highly recommended, but not strictly required)
  (require 'ido)
  (ido-mode t)
+ (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+  (defun ido-disable-line-truncation () (set (make-local-variable 'truncate-lines) nil))
+  (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-truncation)
+  (defun ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+    (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+    (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+  (add-hook 'ido-setup-hook 'ido-define-keys)
+
+(add-hook 'ruby-mode-hook 'projectile-mode)
+
 ;; Rinari
- (add-to-list 'load-path "/home/vagrant/.emacs.d/rinari")
- (require 'rinari)
+(require 'rinari)
+
+;; Robe
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+(require 'robe)
+
+;; irb on emancs
+(global-set-key (kbd "C-c r b") 'inf-ruby)
+
 ;; Rake files are ruby, too, as are gemspecs, rackup files, etc.
- (add-to-list 'auto-mode-alist '("\.rake$" . ruby-mode))
- (add-to-list 'auto-mode-alist '("\.gemspec$" . ruby-mode))
- (add-to-list 'auto-mode-alist '("\.ru$" . ruby-mode))
- (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
- (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
- (add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.rake$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.gemspec$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.ru$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.jbuilder$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("Capfile$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("Vagrantfile$" . enh-ruby-mode))
+
+ (add-to-list 'auto-mode-alist '("\.erb$" . html-mode))
+
+;; Markdown
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.rdoc\\'" . markdown-mode))
+
+;; Auto complete
+ (require 'auto-complete-config)
+ (ac-config-default)
+ (setq ac-ignore-case nil)
+ (add-to-list 'ac-modes 'enh-ruby-mode)
+ (add-to-list 'ac-modes 'web-mode)
 
 ;;日本語環境
 (set-language-environment 'Japanese)
