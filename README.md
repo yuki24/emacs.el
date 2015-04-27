@@ -1,13 +1,3 @@
-My Emacs Lisp Installation
-==========================
+# My Emacs Lisp Installation
 
-do the followings.
-
-    cd ~/
-    git clone git://github.com/yuki24/emacs.el.git site-lisp
-    cp site-lisp/.emacs.el .
-    cd .emacs.d
-    git clone git://github.com/eschulte/rinari.git
-    cd rinari
-    git submodule init
-    git submodule update
+See https://gist.github.com/yuki24/f43ab05fba77f6a43e09 for installation.
