@@ -60,6 +60,9 @@
  (add-to-list 'ac-modes 'enh-ruby-mode)
  (add-to-list 'ac-modes 'web-mode)
 
+;; enable magit
+(require 'magit)
+
 ;;日本語環境
 ;; (set-language-environment 'Japanese)
 
