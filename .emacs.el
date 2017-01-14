@@ -61,7 +61,7 @@
  (add-to-list 'ac-modes 'web-mode)
 
 ;;日本語環境
-(set-language-environment 'Japanese)
+;; (set-language-environment 'Japanese)
 
 ;; Carbon-font 設定
 ;;(if (eq window-system 'mac) (require 'carbon-font))
@@ -398,11 +398,11 @@
 ;; jaspaceの設定
 ;; 
 (setq buffer-display-table (make-display-table))
-(require 'jaspace)
-(setq jaspace-alternate-jaspace-string "□")
-(if window-system
-	(setq jaspace-alternate-eol-string "↓\n"))
-(setq jaspace-highlight-tabs ?^)
+;; (require 'jaspace)
+;; (setq jaspace-alternate-jaspace-string "□")
+;; (if window-system
+;; 	(setq jaspace-alternate-eol-string "↓\n"))
+;; (setq jaspace-highlight-tabs ?^)
 
 ;;
 ;; ファイルの末尾に[EOF]を表示
