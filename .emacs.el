@@ -32,14 +32,18 @@
 ;; Rake files are ruby, too, as are gemspecs, rackup files, etc.
  (add-to-list 'auto-mode-alist '("\.rake$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("\.gemspec$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.apispec$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("\.ru$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("\.jbuilder$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("\.gemfile$" . enh-ruby-mode))
+ (add-to-list 'auto-mode-alist '("Appraisals$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("Capfile$" . enh-ruby-mode))
  (add-to-list 'auto-mode-alist '("Vagrantfile$" . enh-ruby-mode))
 
- (add-to-list 'auto-mode-alist '("\.erb$" . html-mode))
+ (add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
+ (add-to-list 'auto-mode-alist '("\.rb.erb$" . ruby-mode))
 
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode"
